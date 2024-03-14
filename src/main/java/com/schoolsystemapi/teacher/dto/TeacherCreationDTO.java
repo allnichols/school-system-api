@@ -1,30 +1,16 @@
 package com.schoolsystemapi.teacher.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.experimental.NonFinal;
+import org.antlr.v4.runtime.misc.NotNull;
+
+@Data
 public class TeacherCreationDTO {
+    @NonNull
     private String name;
-    private String age;
+    @NonNull
+    private Integer age;
 
-    public TeacherCreationDTO() {
-    }
-
-    public TeacherCreationDTO(String name, String age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
 }
