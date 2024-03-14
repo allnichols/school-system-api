@@ -1,18 +1,16 @@
 package com.schoolsystemapi.teacher;
-
-import com.netflix.graphql.dgs.DgsComponent;
-import com.netflix.graphql.dgs.DgsQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-@DgsComponent
-public class TeacherDataFetcher {
-    @Autowired
+@Controller
+public class TeacherController {
     private TeacherService teacherService;
 
-    @DgsQuery(field = "teachers")
+
+    @QueryMapping
     public List<TeacherEntity> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
