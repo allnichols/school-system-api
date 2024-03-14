@@ -1,9 +1,19 @@
-type Query {
-  getAllTeachers: [Teacher]
-}
-
 type Teacher {
   id: ID!
   name: String!
   age: Int!
+}
+
+input TeacherInput {
+  name: String!
+  age: Int!
+}
+
+type Query {
+  getAllTeachers: [Teacher]
+}
+
+
+type Mutation {
+  createTeacher(teacher: TeacherInput!): Teacher
 }

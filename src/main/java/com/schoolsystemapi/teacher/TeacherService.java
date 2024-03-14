@@ -1,5 +1,7 @@
 package com.schoolsystemapi.teacher;
 
+import com.schoolsystemapi.teacher.dto.TeacherCreationDTO;
+
 import java.util.List;
 
 public interface TeacherService {
