@@ -10,13 +10,19 @@ public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private TeacherRepository teacherRepository;
 
-    @Override
+
     public List<TeacherEntity> getAllTeachers() {
+        if(teacherRepository.findAll().isEmpty()){
+            return List.of();
+        }
         return teacherRepository.findAll();
     }
 
-    @Override
     public TeacherEntity getTeacher(Long id) {
         return teacherRepository.findById(id).orElse(null);
+    }
+
+    public TeacherEntity createTeacher(TeacherEntity teacher) {
+        return teacherRepository.save(teacher);
     }
 }

@@ -7,8 +7,8 @@ import java.util.List;
 
 @Controller
 public class TeacherController {
+    @Autowired
     private TeacherService teacherService;
-
 
     @QueryMapping
     public List<TeacherEntity> getAllTeachers() {

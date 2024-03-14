@@ -6,4 +6,6 @@ public interface TeacherService {
     List<TeacherEntity> getAllTeachers();
     TeacherEntity getTeacher(Long id);
 
+    TeacherEntity createTeacher(TeacherEntity teacher);
+
 }
