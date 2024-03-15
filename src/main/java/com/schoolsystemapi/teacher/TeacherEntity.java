@@ -9,13 +9,13 @@ public class TeacherEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String age;
+    private Integer age;
     private String email;
 
     public TeacherEntity() {
     }
 
-    public TeacherEntity(Long id, String name, String age, String email) {
+    public TeacherEntity(Long id, String name, Integer age, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -38,11 +38,11 @@ public class TeacherEntity {
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

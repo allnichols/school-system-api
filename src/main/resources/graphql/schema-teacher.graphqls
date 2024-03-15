@@ -7,12 +7,13 @@ type Teacher {
 input TeacherInput {
   name: String!
   age: Int!
+  email: String!
 }
 
 type Query {
   getAllTeachers: [Teacher]
+  getTeacherById(id: ID!): Teacher
 }
-
 
 type Mutation {
   createTeacher(teacher: TeacherInput!): Teacher

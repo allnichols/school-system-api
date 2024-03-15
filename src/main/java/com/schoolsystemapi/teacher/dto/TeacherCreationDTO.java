@@ -1,16 +1,24 @@
 package com.schoolsystemapi.teacher.dto;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.experimental.NonFinal;
-import org.antlr.v4.runtime.misc.NotNull;
-
-@Data
 public class TeacherCreationDTO {
-    @NonNull
     private String name;
-    @NonNull
-    private Integer age;
+    private String email;
+    private String phone;
+    private String address;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }
