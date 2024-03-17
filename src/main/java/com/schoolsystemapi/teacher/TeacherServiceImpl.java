@@ -23,12 +23,8 @@ public class TeacherServiceImpl implements TeacherService {
 
     public TeacherEntity createTeacher(TeacherEntity teacher) {
 
-        if(teacher.getId() == null){
-            throw new RuntimeException("Teacher id cannot be null");
-        }
-
-        if(teacherRepository.findById(teacher.getId()).isPresent()){
-            throw new RuntimeException("Teacher with id " + teacher.getId() + " already exists");
+        if(teacherRepository.existsByEmail(teacher.getEmail())){
+            throw new IllegalArgumentException("Email already in use");
         }
 
         return teacherRepository.save(teacher);

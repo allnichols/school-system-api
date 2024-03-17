@@ -1,4 +1,5 @@
 package com.schoolsystemapi.teacher;
+import com.schoolsystemapi.teacher.dto.TeacherCreationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -12,25 +13,26 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
+    private TeacherCreationDTO teacherCreationDTO;
+
     @QueryMapping
     public List<TeacherEntity> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 
     @QueryMapping
-    public TeacherEntity getTeacherById(Long id) {
+    public TeacherEntity getTeacherById(@Argument("id") Long id) {
         return teacherService.getTeacherById(id);
     }
 
     @MutationMapping
-    public TeacherEntity createTeacher(@Argument("teacher") TeacherEntity teacher) {
-        System.out.println(teacher);
-//        need to create a dto for teacher creation
-      if(teacher.getId() == null){
-          return null;
-      }
+    public TeacherEntity createTeacher(@Argument("teacher") TeacherCreationDTO teacher) {
+        TeacherEntity teacherEntity = new TeacherEntity();
+        teacherEntity.setName(teacher.getName());
+        teacherEntity.setAge(teacher.getAge());
+        teacherEntity.setEmail(teacher.getEmail());
 
-        return teacherService.createTeacher(teacher);
+        return teacherService.createTeacher(teacherEntity);
 
     }
 }
