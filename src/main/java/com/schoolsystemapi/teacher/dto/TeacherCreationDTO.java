@@ -1,9 +1,11 @@
 package com.schoolsystemapi.teacher.dto;
 
+import java.util.Date;
+
 public class TeacherCreationDTO {
     private String name;
 
-    private Integer age;
+    private Date dob;
     private String email;
 
     public String getName() {
@@ -14,12 +16,12 @@ public class TeacherCreationDTO {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public Date getDob() {
+        return dob;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 
     public String getEmail() {

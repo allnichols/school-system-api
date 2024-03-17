@@ -29,7 +29,7 @@ public class TeacherController {
     public TeacherEntity createTeacher(@Argument("teacher") TeacherCreationDTO teacher) {
         TeacherEntity teacherEntity = new TeacherEntity();
         teacherEntity.setName(teacher.getName());
-        teacherEntity.setAge(teacher.getAge());
+        teacherEntity.setDob(teacher.getDob());
         teacherEntity.setEmail(teacher.getEmail());
 
         return teacherService.createTeacher(teacherEntity);
