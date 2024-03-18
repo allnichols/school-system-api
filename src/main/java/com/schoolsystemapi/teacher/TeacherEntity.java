@@ -1,5 +1,6 @@
 package com.schoolsystemapi.teacher;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -23,11 +24,10 @@ public class TeacherEntity {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @Transient
     @Column(name = "address")
     private String address;
-    @ManyToOne
-    @JoinColumn(name = "class_id")
-    private List<String> classesTaught;
+
     public TeacherEntity() {
     }
 
@@ -38,7 +38,6 @@ public class TeacherEntity {
         this.dob = dob;
         this.email = email;
         this.address = address;
-        this.classesTaught = classesTaught;
     }
 
     public Long getId() {
@@ -89,11 +88,4 @@ public class TeacherEntity {
         this.address = address;
     }
 
-    public List<String> getClassesTaught() {
-        return classesTaught;
-    }
-
-    public void setClassesTaught(List<String> classesTaught) {
-        this.classesTaught = classesTaught;
-    }
 }
