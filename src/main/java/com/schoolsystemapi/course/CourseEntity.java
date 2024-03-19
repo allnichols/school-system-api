@@ -12,8 +12,15 @@ public class CourseEntity {
     @Column(name = "course_name", nullable = false)
     private String courseName;
 
-    @Column(name = "course_teacher", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "course_teacher", nullable = false)
     private String courseTeacher;
+
+    @Column(name = "grade_level", nullable = false)
+    private String gradeLevel;
+// add a enum here for grade level?
+
+
 
     public CourseEntity() {
     }
@@ -46,5 +53,13 @@ public class CourseEntity {
 
     public void setCourseTeacher(String courseTeacher) {
         this.courseTeacher = courseTeacher;
+    }
+
+    public String getGradeLevel() {
+        return gradeLevel;
+    }
+
+    public void setGradeLevel(String gradeLevel) {
+        this.gradeLevel = gradeLevel;
     }
 }

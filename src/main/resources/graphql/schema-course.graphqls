@@ -1,0 +1,11 @@
+type Course {
+    id: ID!
+    courseName: String!
+    courseTeacher: Teacher
+    gradeLevel: Int!
+}
+
+type Query {
+    getAllCourses: [Course]
+    getCourseById(id: ID!): Course
+}

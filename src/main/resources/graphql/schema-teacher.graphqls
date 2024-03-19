@@ -21,7 +21,7 @@ input TeacherInput {
   email: String!
 }
 
-type Query {
+extend type Query {
   getAllTeachers: [Teacher]
   getTeacherById(id: ID!): Teacher
 }

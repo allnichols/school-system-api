@@ -1,5 +1,6 @@
 package com.schoolsystemapi.teacher;
 
+import com.schoolsystemapi.course.CourseEntity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
@@ -27,6 +28,9 @@ public class TeacherEntity {
     @Transient
     @Column(name = "address")
     private String address;
+
+    @OneToMany(mappedBy = "courseTeacher")
+    private List<CourseEntity> coursesTaught;
 
     public TeacherEntity() {
     }
