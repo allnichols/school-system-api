@@ -4,7 +4,7 @@ type Teacher {
   lastName: String!
   email: String!
   dob: String!
-  classes: [String],
+  coursesTaught: [ID],
   address: Address
 }
 

@@ -1,7 +1,14 @@
 package com.schoolsystemapi.course;
 
+import com.schoolsystemapi.teacher.TeacherEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "course")
 public class CourseEntity {
@@ -13,53 +20,10 @@ public class CourseEntity {
     private String courseName;
 
     @ManyToOne
-    @JoinColumn(name = "course_teacher", nullable = false)
-    private String courseTeacher;
+    @JoinColumn(name = "course_teacher_id", nullable = false)
+    private TeacherEntity courseTeacher;
 
     @Column(name = "grade_level", nullable = false)
     private String gradeLevel;
-// add a enum here for grade level?
 
-
-
-    public CourseEntity() {
-    }
-
-    public CourseEntity(Long id, String courseName, String courseTeacher) {
-        this.id = id;
-        this.courseName = courseName;
-        this.courseTeacher = courseTeacher;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public String getCourseTeacher() {
-        return courseTeacher;
-    }
-
-    public void setCourseTeacher(String courseTeacher) {
-        this.courseTeacher = courseTeacher;
-    }
-
-    public String getGradeLevel() {
-        return gradeLevel;
-    }
-
-    public void setGradeLevel(String gradeLevel) {
-        this.gradeLevel = gradeLevel;
-    }
 }
