@@ -30,16 +30,11 @@ public class CourseController {
         @MutationMapping
         public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
             CourseEntity courseEntity = new CourseEntity();
-            CreateCourseDto createCourseDto = new CreateCourseDto();
-            createCourseDto.setCourseName(createCourse.getCourseName());
-            createCourseDto.setGradeLevel(createCourse.getGradeLevel());
-            if(createCourse.getCourseTeacher() == null){
-                createCourseDto.setCourseTeacher(null);
-            } else {
-                createCourseDto.setCourseTeacher(createCourse.getCourseTeacher());
-            }
+            courseEntity.setCourseName(createCourse.getCourseName());
+            courseEntity.setGradeLevel(createCourse.getGradeLevel());
+            courseEntity.setCourseTeacher(createCourse.getCourseTeacher());
 
-            return courseService.createCourse(createCourseDto);
+            return courseService.createCourse(courseEntity);
         }
 
 }

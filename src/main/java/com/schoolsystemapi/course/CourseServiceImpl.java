@@ -23,12 +23,11 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findById(id).orElse(null);
     }
 
-    public CourseEntity createCourse(CreateCourseDto createCourseDto) {
-        CourseEntity courseEntity = new CourseEntity();
-        courseEntity.setCourseName(createCourseDto.getCourseName());
-        courseEntity.setCourseTeacher(createCourseDto.getCourseTeacher());
-        courseEntity.setGradeLevel(createCourseDto.getGradeLevel());
-        return courseRepository.save(courseEntity);
+    public CourseEntity createCourse(CourseEntity course) {
+        if(courseRepository.existsById(course.getId())){
+            throw new IllegalArgumentException("Course already exists");
+        }
+        return courseRepository.save(course);
     }
 
 }

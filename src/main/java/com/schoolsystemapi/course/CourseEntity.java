@@ -20,7 +20,7 @@ public class CourseEntity {
     private String courseName;
 
     @ManyToOne
-    @JoinColumn(name = "course_teacher_id", nullable = false)
+    @JoinColumn(name = "course_teacher_id")
     private TeacherEntity courseTeacher;
 
     @Column(name = "grade_level", nullable = false)

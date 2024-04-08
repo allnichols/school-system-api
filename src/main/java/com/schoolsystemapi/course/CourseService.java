@@ -8,5 +8,5 @@ public interface CourseService {
 
     List<CourseEntity> getAllCourses();
     CourseEntity getCourseById(Long id);
-    CourseEntity createCourse(CreateCourseDto classEntity);
+    CourseEntity createCourse(CourseEntity classEntity);
 }
