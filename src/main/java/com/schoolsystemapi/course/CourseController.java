@@ -1,5 +1,6 @@
 package com.schoolsystemapi.course;
 
+import com.schoolsystemapi.course.dto.CreateCourseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -14,6 +15,8 @@ public class CourseController {
         @Autowired
         private CourseService courseService;
 
+        private CreateCourseDto createCourseDto;
+
         @QueryMapping
         public List<CourseEntity> getAllCourses() {
             return courseService.getAllCourses();
@@ -22,6 +25,21 @@ public class CourseController {
         @QueryMapping
         public CourseEntity getCourseById(@Argument("id") Long id) {
             return courseService.getCourseById(id);
+        }
+
+        @MutationMapping
+        public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
+            CourseEntity courseEntity = new CourseEntity();
+            CreateCourseDto createCourseDto = new CreateCourseDto();
+            createCourseDto.setCourseName(createCourse.getCourseName());
+            createCourseDto.setGradeLevel(createCourse.getGradeLevel());
+            if(createCourse.getCourseTeacher() == null){
+                createCourseDto.setCourseTeacher(null);
+            } else {
+                createCourseDto.setCourseTeacher(createCourse.getCourseTeacher());
+            }
+
+            return courseService.createCourse(createCourseDto);
         }
 
 }

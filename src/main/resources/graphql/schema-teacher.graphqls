@@ -26,6 +26,6 @@ extend type Query {
   getTeacherById(id: ID!): Teacher
 }
 
-type Mutation {
+extend type Mutation {
   createTeacher(teacher: TeacherInput!): Teacher
 }

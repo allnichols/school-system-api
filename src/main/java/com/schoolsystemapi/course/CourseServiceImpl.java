@@ -1,5 +1,6 @@
 package com.schoolsystemapi.course;
 
+import com.schoolsystemapi.course.dto.CreateCourseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,11 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findById(id).orElse(null);
     }
 
-    public CourseEntity createCourse(CourseEntity courseEntity) {
+    public CourseEntity createCourse(CreateCourseDto createCourseDto) {
+        CourseEntity courseEntity = new CourseEntity();
+        courseEntity.setCourseName(createCourseDto.getCourseName());
+        courseEntity.setCourseTeacher(createCourseDto.getCourseTeacher());
+        courseEntity.setGradeLevel(createCourseDto.getGradeLevel());
         return courseRepository.save(courseEntity);
     }
 

@@ -9,3 +9,13 @@ type Query {
     getAllCourses: [Course]
     getCourseById(id: ID!): Course
 }
+
+input CourseInput {
+    courseName: String!
+    courseTeacher: ID
+    gradeLevel: Int!
+}
+
+type Mutation {
+    createCourse(course: CourseInput!): Course
+}
