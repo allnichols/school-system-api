@@ -24,9 +24,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     public CourseEntity createCourse(CourseEntity course) {
-        if(courseRepository.existsById(course.getId())){
-            throw new IllegalArgumentException("Course already exists");
-        }
+//        if(courseRepository.existsById(course.getId())){
+//            throw new IllegalArgumentException("Course already exists");
+//        }
         return courseRepository.save(course);
     }
 

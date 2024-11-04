@@ -1,6 +1,7 @@
 package com.schoolsystemapi.teacher;
 import com.schoolsystemapi.teacher.dto.TeacherCreationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

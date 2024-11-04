@@ -12,10 +12,7 @@ public class CreateCourseDto {
 
     private String courseName;
 
-    private TeacherEntity courseTeacher;
-
     private String gradeLevel;
-
 
     public String getCourseName() {
         return courseName;
@@ -23,14 +20,6 @@ public class CreateCourseDto {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
-    }
-
-    public TeacherEntity getCourseTeacher() {
-        return courseTeacher;
-    }
-
-    public void setCourseTeacher(TeacherEntity courseTeacher) {
-        this.courseTeacher = courseTeacher;
     }
 
     public String getGradeLevel() {
