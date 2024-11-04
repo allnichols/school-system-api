@@ -2,6 +2,7 @@ type Course {
     id: ID!
     courseName: String!
     gradeLevel: Int!
+    teacher: Teacher
 }
 
 type Query {

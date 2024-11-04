@@ -1,32 +1,21 @@
 package com.schoolsystemapi.course.dto;
 
 import com.schoolsystemapi.teacher.TeacherEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateCourseDto {
-
+    @Setter
     private String courseName;
 
+    @Setter
     private String gradeLevel;
 
-    public String getCourseName() {
-        return courseName;
-    }
+    @Setter
+    private Long teacherId;
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 
-    public String getGradeLevel() {
-        return gradeLevel;
-    }
-
-    public void setGradeLevel(String gradeLevel) {
-        this.gradeLevel = gradeLevel;
-    }
 }

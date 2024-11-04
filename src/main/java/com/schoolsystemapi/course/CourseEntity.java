@@ -3,12 +3,10 @@ package com.schoolsystemapi.course;
 import com.schoolsystemapi.teacher.TeacherEntity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +23,10 @@ public class CourseEntity {
     @Column(name = "grade_level", nullable = false)
     private String gradeLevel;
 
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", nullable = true)
+    private TeacherEntity teacher;
+
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
@@ -32,11 +34,5 @@ public class CourseEntity {
     public void setGradeLevel(String gradeLevel) {
         this.gradeLevel = gradeLevel;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
 
 }
