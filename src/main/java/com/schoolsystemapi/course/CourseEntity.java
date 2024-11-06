@@ -1,7 +1,6 @@
 package com.schoolsystemapi.course;
 
 import com.schoolsystemapi.teacher.TeacherEntity;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +23,7 @@ public class CourseEntity {
     private String gradeLevel;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id", nullable = true)
+    @JoinColumn(name = "teacher_id")
     private TeacherEntity teacher;
 
     public void setCourseName(String courseName) {
@@ -35,4 +34,5 @@ public class CourseEntity {
         this.gradeLevel = gradeLevel;
     }
 
+    public void setTeacher(TeacherEntity teacher) { this.teacher = teacher; }
 }

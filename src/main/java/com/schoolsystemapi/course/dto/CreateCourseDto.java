@@ -14,6 +14,7 @@ public class CreateCourseDto {
     @Setter
     private String gradeLevel;
 
+    @Getter
     @Setter
     private Long teacherId;
 

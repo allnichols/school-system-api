@@ -14,7 +14,6 @@ import java.util.List;
 
 @Controller
 public class CourseController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CourseController.class);
         @Autowired
         private CourseService courseService;
 
@@ -33,13 +32,11 @@ public class CourseController {
             return courseService.getCourseById(id);
         }
 
-        @MutationMapping
-        public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
-            CourseEntity courseEntity = new CourseEntity();
-            courseEntity.setCourseName(createCourse.getCourseName());
-            courseEntity.setGradeLevel(createCourse.getGradeLevel());
-           LOGGER.info("Teacher ID: " + createCourse);
-            return courseService.createCourse(courseEntity);
-        }
+
+            @MutationMapping
+            public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
+                return courseService.createCourse(createCourse);
+            }
+
 
 }

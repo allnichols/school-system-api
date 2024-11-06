@@ -13,6 +13,7 @@ type Query {
 input CourseInput {
     courseName: String!
     gradeLevel: Int!
+    teacherId: ID
 }
 
 type Mutation {
