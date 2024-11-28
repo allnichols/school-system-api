@@ -9,4 +9,5 @@ import java.util.List;
 public interface TeacherRepository extends JpaRepository<TeacherEntity, Long> {
     boolean existsByEmail(String email);
 
+    List<TeacherEntity> findByFullNameContainingIgnoreCase(String name);
 }

@@ -21,6 +21,10 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
 
+    public List<TeacherEntity> searchTeachers(String name) {
+        return teacherRepository.findByFullNameContainingIgnoreCase(name);
+    }
+
     public TeacherEntity createTeacher(TeacherEntity teacher) {
 
         if(teacherRepository.existsByEmail(teacher.getEmail())){

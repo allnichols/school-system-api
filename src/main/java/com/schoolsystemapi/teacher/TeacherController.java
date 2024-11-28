@@ -26,6 +26,11 @@ public class TeacherController {
         return teacherService.getTeacherById(id);
     }
 
+    @QueryMapping
+    public List<TeacherEntity> searchTeachers(@Argument("name") String name) {
+        return teacherService.searchTeachers(name);
+    }
+
     @MutationMapping
     public TeacherEntity createTeacher(@Argument("teacher") TeacherCreationDTO teacher) {
         TeacherEntity teacherEntity = new TeacherEntity();

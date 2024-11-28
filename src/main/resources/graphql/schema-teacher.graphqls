@@ -2,6 +2,7 @@ type Teacher {
   id: ID!
   firstName: String!
   lastName: String!
+  fullName: String!
   email: String!
   dob: String!
   address: Address
@@ -23,6 +24,7 @@ input TeacherInput {
 extend type Query {
   getAllTeachers: [Teacher]
   getTeacherById(id: ID!): Teacher
+  searchTeachers(name: String!): [Teacher]
 }
 
 extend type Mutation {

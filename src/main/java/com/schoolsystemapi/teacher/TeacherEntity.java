@@ -29,6 +29,10 @@ public class TeacherEntity {
     private String lastName;
 
     @Getter
+    @Column(name="full_name", nullable = false)
+    private String fullName = "";
+
+    @Getter
     @Column(name = "date_of_birth", nullable = false)
     private Date dob;
 
@@ -40,6 +44,12 @@ public class TeacherEntity {
     @Transient
     @Column(name = "address")
     private String address;
+
+    @PrePersist
+    @PreUpdate
+    public void setFullName() {
+        this.fullName = this.firstName + " " + this.lastName;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

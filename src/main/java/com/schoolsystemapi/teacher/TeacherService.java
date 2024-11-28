@@ -8,4 +8,7 @@ public interface TeacherService {
     TeacherEntity getTeacherById(Long id);
     TeacherEntity createTeacher(TeacherEntity teacher);
 
+    List<TeacherEntity> searchTeachers(String name);
+
+
 }
