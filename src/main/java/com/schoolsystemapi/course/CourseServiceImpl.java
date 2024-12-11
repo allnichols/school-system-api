@@ -49,4 +49,33 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.save(course);
     }
 
+    public CourseEntity updateCourse(Long id, CreateCourseDto createCourseDto) {
+        System.out.println(id);
+        if(id == null) {
+            throw new IllegalArgumentException("Course ID is required");
+        }
+
+        CourseEntity course = courseRepository.findById(id).orElse(null);
+
+        if(course == null) {
+            System.out.println("Course does not exist");
+            throw new IllegalArgumentException("Course does not exist");
+        }
+
+        if(createCourseDto.getCourseName() != null){
+            course.setCourseName(createCourseDto.getCourseName());
+        }
+
+        if(createCourseDto.getGradeLevel() != null) {
+            course.setGradeLevel(createCourseDto.getGradeLevel());
+        }
+
+        if(createCourseDto.getTeacherId() != null) {
+            TeacherEntity teacher = teacherService.getTeacherById(createCourseDto.getTeacherId());
+            course.setTeacher(teacher);
+        }
+
+        return courseRepository.save(course);
+    }
+
 }

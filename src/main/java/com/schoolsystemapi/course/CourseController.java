@@ -24,10 +24,15 @@ public class CourseController {
         }
 
 
-            @MutationMapping
-            public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
-                return courseService.createCourse(createCourse);
-            }
+        @MutationMapping
+        public CourseEntity createCourse(@Argument("course") CreateCourseDto createCourse) {
+            return courseService.createCourse(createCourse);
+        }
+
+        @MutationMapping
+        public CourseEntity updateCourse(@Argument("id") Long id, @Argument("course") CreateCourseDto createCourse) {
+            return courseService.updateCourse(id, createCourse);
+        }
 
 
 }

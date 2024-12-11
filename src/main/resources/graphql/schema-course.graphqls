@@ -16,6 +16,13 @@ input CourseInput {
     teacherId: ID
 }
 
+input CourseUpdateInput {
+    courseName: String
+    gradeLevel: Int
+    teacherId: ID
+}
+
 type Mutation {
     createCourse(course: CourseInput!): Course
+    updateCourse(id: ID!, course: CourseUpdateInput!): Course
 }
