@@ -24,6 +24,9 @@ public class StudentEntity {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @Column(name = "full_name", nullable = false)
+    private String fullName = "";
+
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -32,4 +35,10 @@ public class StudentEntity {
 
     @ManyToMany(mappedBy = "students")
     private List<CourseEntity> course;
+
+    @PrePersist
+    @PreUpdate
+    public void setFullName() {
+        this.fullName = this.firstName + " " + this.lastName;
+    }
 }

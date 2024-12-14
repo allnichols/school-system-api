@@ -3,11 +3,11 @@ type Student {
     firstName: String!
     lastName: String!
     fullName: String!
-    email: String!
-    dob: String!
+    email: String
+    dob: String
     address: Address
     enrolledCourses: [Course]
-    gradeLevel: Int!
+    gradeLevel: Int
 }
 
 extend type Query {
