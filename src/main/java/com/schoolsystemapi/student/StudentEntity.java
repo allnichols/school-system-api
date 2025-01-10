@@ -33,8 +33,9 @@ public class StudentEntity {
     @Column(name = "dob", nullable = false)
     private String dob;
 
-    @ManyToMany(mappedBy = "students")
-    private List<CourseEntity> course;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity course;
 
     @PrePersist
     @PreUpdate

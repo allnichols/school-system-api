@@ -1,8 +1,11 @@
 package com.schoolsystemapi.course;
 
+import com.schoolsystemapi.student.StudentEntity;
 import com.schoolsystemapi.teacher.TeacherEntity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +28,9 @@ public class CourseEntity {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private TeacherEntity teacher;
+
+    @OneToMany(mappedBy = "course")
+    private List<StudentEntity> students;
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
