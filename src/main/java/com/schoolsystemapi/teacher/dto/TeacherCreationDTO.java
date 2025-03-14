@@ -13,9 +13,6 @@ public class TeacherCreationDTO {
     private String address;
     private String classesTaught;
 
-    public TeacherCreationDTO() {
-    }
-
     public TeacherCreationDTO(String firstName, String lastName, Date dob, String email, String address, String classesTaught) {
         this.firstName = firstName;
         this.lastName = lastName;
