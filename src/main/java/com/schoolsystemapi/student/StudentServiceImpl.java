@@ -1,16 +1,14 @@
 package com.schoolsystemapi.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
-
-    @Autowired
-    private StudentService studentService;
 
     public List<StudentEntity> getAllStudents() {
         if(studentRepository.findAll().isEmpty()){

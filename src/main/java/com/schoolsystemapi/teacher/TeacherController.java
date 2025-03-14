@@ -1,38 +1,35 @@
 package com.schoolsystemapi.teacher;
 import com.schoolsystemapi.teacher.dto.TeacherCreationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/api/teachers")
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
     private TeacherCreationDTO teacherCreationDTO;
 
-    @QueryMapping
+    @GetMapping
     public List<TeacherEntity> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 
-    @QueryMapping
-    public TeacherEntity getTeacherById(@Argument("id") Long id) {
+    @GetMapping("/{id}")
+    public TeacherEntity getTeacherById(@PathVariable("id") Long id) {
         return teacherService.getTeacherById(id);
     }
 
-    @QueryMapping
-    public List<TeacherEntity> searchTeachers(@Argument("name") String name) {
+
+    public List<TeacherEntity> searchTeachers(@RequestParam String name) {
         return teacherService.searchTeachers(name);
     }
 
-    @MutationMapping
-    public TeacherEntity createTeacher(@Argument("teacher") TeacherCreationDTO teacher) {
+    @PostMapping
+    public TeacherEntity createTeacher(@RequestBody TeacherCreationDTO teacher) {
         TeacherEntity teacherEntity = new TeacherEntity();
         teacherEntity.setFirstName(teacher.getFirstName());
         teacherEntity.setLastName(teacher.getLastName());

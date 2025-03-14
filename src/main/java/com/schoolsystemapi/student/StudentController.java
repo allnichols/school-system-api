@@ -1,26 +1,28 @@
 package com.schoolsystemapi.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
-    @QueryMapping
+    @GetMapping
     public List<StudentEntity> getAllStudents() {
         return studentService.getAllStudents();
     }
 
-    @QueryMapping
-    public StudentEntity getStudentById(@Argument("id") Long id) {
+    @GetMapping("/{id}")
+    public StudentEntity getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
     }
-
-
 
 }
