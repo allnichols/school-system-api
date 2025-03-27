@@ -10,5 +10,7 @@ public interface TeacherService {
 
     List<TeacherEntity> searchTeachers(String name);
 
+    TeacherEntity updateTeacher(Long id, TeacherEntity teacher);
+
 
 }

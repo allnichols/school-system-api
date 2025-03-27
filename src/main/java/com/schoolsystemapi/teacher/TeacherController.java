@@ -40,4 +40,15 @@ public class TeacherController {
 
     }
 
+    @PutMapping("/{id}")
+    public TeacherEntity updateTeacher(@PathVariable("id") Long id, @RequestBody TeacherCreationDTO teacher) {
+        TeacherEntity teacherEntity = new TeacherEntity();
+        teacherEntity.setFirstName(teacher.getFirstName());
+        teacherEntity.setLastName(teacher.getLastName());
+        teacherEntity.setDob(teacher.getDob());
+        teacherEntity.setEmail(teacher.getEmail());
+
+        return teacherService.updateTeacher(id, teacherEntity);
+    }
+
 }

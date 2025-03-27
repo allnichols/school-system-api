@@ -33,4 +33,16 @@ public class TeacherServiceImpl implements TeacherService {
 
         return teacherRepository.save(teacher);
     }
+
+    public TeacherEntity updateTeacher(Long id, TeacherEntity teacher) {
+        TeacherEntity existingTeacher = getTeacherById(id);
+        if (existingTeacher != null) {
+            existingTeacher.setFirstName(teacher.getFirstName());
+            existingTeacher.setLastName(teacher.getLastName());
+            existingTeacher.setDob(teacher.getDob());
+            existingTeacher.setEmail(teacher.getEmail());
+            return teacherRepository.save(existingTeacher);
+        }
+        return null; // or throw an exception
+    }
 }
